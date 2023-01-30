@@ -1,7 +1,4 @@
 
-
-
-
 from graphics import *
 from button import*
 
@@ -13,13 +10,13 @@ def main():
  
     win = GraphWin("madlibs", 800, 600)
 
-    label = Text(Point(200, 80), 'Adjective')
+    label = Text(Point(200, 80), "Noun")
     label.draw(win)
-    label = Text(Point(200, 180), '2nd Noun')
+    label = Text(Point(200, 180), 'Adjective')
     label.draw(win)
-    label = Text(Point(200, 280), "verb")
+    label = Text(Point(200, 280), "Noun2")
     label.draw(win)
-    label = Text(Point(200, 380), 'Adjective')
+    label = Text(Point(200, 380), 'Verb')
     label.draw(win)
     label = Text(Point(200, 480), 'Exclemation')
     label.draw(win)
@@ -43,15 +40,20 @@ def main():
     B = Button(win, Point(400, 450), Point(520, 550), "tomato", "Print")
 
     Q = Button(win, Point(400,350), Point(520, 450), 'tomato', "Quit")
+       
 
-    if Q.isClicked():
-        win.close()
 
 
 
     while True:
 
+        
+
         m = win.getMouse()
+
+        if Q.isClicked(m):
+            win.close()
+            break
 
         if B.isClicked(m):
             noun = N.getText()
@@ -59,10 +61,15 @@ def main():
             verb = V.getText()
             adj = A.getText()
             excl = E.getText()
-            print(adj + " " + noun + " and " + noun2 + " " + verb + " " + excl)
+            #print(noun + " " + adj + " " + noun2 + " " + verb + " " + excl)
 
-        if Q.isClicked():
-            win.close()
+            Story = Text(Point(500, 200), noun + "was a very " + adj + " dog who always played with a " + noun2 + "he always loved to" + verb + "The end." + excl)
+            Story. draw(win)
+            
+
+    
+
+        
 
 
 
