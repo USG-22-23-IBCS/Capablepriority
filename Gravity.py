@@ -24,19 +24,19 @@ def main():
         time.sleep(.4)
 
         if y < 20:
-            time.sleep(.1)
+            time.sleep(.20)
             y < 70
-            time.sleep(4)
+            time.sleep(.17)
             
 
         elif y < 200:
-            time.sleep(5)
+            time.sleep(.14)
         
 
 
 
 
-        #y = Object.getCenter().getY()
+        y = Object.getCenter().getY()
 
     
 
