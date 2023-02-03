@@ -39,21 +39,31 @@ random_numbers = [random.randint(1, 50) for i in range(10)]
 min_value, max_value, range_of_values = problem3(random_numbers)
 
 
-#def problem4(x, y):
+def problem4(P):
+    x = P[0]
+    y = P[0]
 
-    #L =[]
-    #h = math.sqrt(x**2 + y**2)
+   
+    h = math.sqrt(x**2 + y**2)
+    angle = math.asin(y/h)
 
-def problem5(word, multiplier=1):
+    angle = angle*180 / math.pi
+    angle = round(angle, 2)
+    return [h, angle]
+
+
+def problem5(word):
+    letters = word.upper()
+    
     score = 0
-    letters = list(word.upper())
+   
     for letter in letters:
         if letter in ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T']:
-            score += 1
+            score = score + 1
         elif letter in ['D', 'G']:
-            score += 2
+            score = score + 2 
         elif letter in ['B', 'C', 'M', 'P']:
-            score += 3
+            score = score + 3
         elif letter in ['F', 'H', 'V', 'W', 'Y']:
             score += 4
         elif letter == ['K']:
@@ -62,14 +72,15 @@ def problem5(word, multiplier=1):
             score += 8
         elif letter in ['Q', 'Z']:
             score += 10
-    return score * multiplier
+            
+    return score
 
 
 
 
-  
-
+    
 def main():
+    
     print("problem 1")
     print(problem1(5, 10, 42))
     mean, median = problem1(44, 123, -5)
@@ -91,21 +102,13 @@ def main():
     print("range of values", range_of_values)
     print(" ")
 
+    print("problem 4")
+    print(problem4([3,4]))
+    print(" ")
 
-    
-
-
-
-
-    x = 3
-    y = 3
-
-
-    
-    h = math.sqrt(x*x + y*y)
-
-    angle = math.asin(y/h)
-    print(angle)
+    print("problem 5")
+    word = input("Please input in a name:")
+    print(problem5(word))
 
     
 
