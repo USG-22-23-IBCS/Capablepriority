@@ -27,7 +27,7 @@ def main():
         print(f"{usd} USD is equal to this amount of money you would have in {currency}: {converted_amount}")
     else:
         print("does not work...sorry")
-#f allows the access of the thingy 
+
 
 if __name__ == '__main__':
     main()
