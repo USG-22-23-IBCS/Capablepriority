@@ -24,10 +24,11 @@ def main():
     currency = (input("Enter the currency you would like to convert to (UK, Germany, Japan, Australia, Canada, Switzerland): "))
     converted_amount = converter.convert_to_currency(currency)
     if converted_amount:
-        print(f"{usd} USD is equal to this amount of money you would have in {currency}: {converted_amount}")
+        print(f"{usd} USD is equal to this amount of money you would have: current currency {currency}, converted amount: {converted_amount}")
     else:
         print("does not work...sorry")
-
+        #not sure when it wouldnt work
+#updated
 
 if __name__ == '__main__':
     main()
