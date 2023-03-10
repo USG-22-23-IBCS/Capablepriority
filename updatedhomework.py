@@ -181,7 +181,9 @@ def main():
     Entry_edge.draw(win)
     Text_node.draw(win)
     Text_edge.draw(win)
+
     G = Graph(1, 0, win)
+
     while True:
         m = win.getMouse()
         if Q.isClicked(m):
@@ -189,6 +191,7 @@ def main():
         if Degrees.isClicked(m):
             print("Minimum Degree: " + str(G.minDegree()))
             print("Maximum Degree: " + str(G.maxDegree()))
+            
         if Cycle.isClicked(m):
             if G.hasCycle():
                 print("The graph has a cycle")
@@ -196,14 +199,14 @@ def main():
                 print("The graph does not have a cycle")
         if Gen.isClicked(m):
             print("\n===================================\n")
-            #GRaph made with number of nodes and number of edges
-   
-            G.delete()
+            #Graph made with number of nodes and number of edges
             number_Node = Entry_node.getText()
             number_Edge = Entry_edge.getText()
-        if number_Node != "" and number_Edge != "":
-            G = Graph(int(number_Node), int(number_Edge), win)
-            
+            if number_Node != "" and number_Edge != "":
+                G.delete()
+                G = Graph(int(number_Node), int(number_Edge), win)
+
+       
             
         if AddNode.isClicked(m):
             G.addNode(win)
