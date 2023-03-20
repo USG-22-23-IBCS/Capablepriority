@@ -193,27 +193,56 @@ class Graph:
             firstNode.draw(win)
             secondNode.undraw()
             secondNode.draw(win)
-        
-      
+
+     
     def coloringNode(self, colors):
 
-        colors = ["red", "yellow", "purple", "blue", "orange", "cyan", "grey", "green", "brown"]
-
-        count = 0
+        
+        colorMap = {}
         for node in self.nodes:
-            node.color(colors[count])
-            count = count + 1
+            neighborsColors = []
+            for nb in node.getNeighbors():
+                if nb in colorMap:
+                    neighborsColors.append(colorMap[nb])
+            
+            for color in self.colors:
+                if color not in neighborsColors:
+                    node.color(color)
+                    colorMap[node] = color
+                    break
+
+        
+    
+
+
+    """def coloringNode(self, colors):
+
+        colors = ["red", "yellow", "purple", "blue", "orange", "brown"]
 
         if len(colors) < len(self.nodes):
             print("Not enough colors to color all nodes")
 
+        count = 0
+        for node in self.nodes:
+            for neighbors in self.neighbors: 
+                node.color(colors[count])
+                count = count + 1"""
+
+
+            #self dotn
+                #if they are a neighboy dont color green, else color green. 
+        
+        
+
+
+
 
         
 
         
         
 
-        """count = 0
+    """count = 0
 
 
         for c in colors:
@@ -351,6 +380,8 @@ def main():
 
         if Coloring.isClicked(m):
             G.coloringNode(win)
+
+        
            
                 
                 
